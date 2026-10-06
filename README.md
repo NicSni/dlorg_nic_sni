@@ -64,3 +64,5 @@ touch \
   feed.rss
 
 #end of touch prompt
+
+261006: tested on VM. Failed and created only other. Found I was a bit fat fingered on lines 91+92 when writing and fixed in beta ver of script. Now gonna push and try again.
