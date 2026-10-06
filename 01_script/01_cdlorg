@@ -1,6 +1,16 @@
-# Base list for category arrays
-#PNGs
+#!/usr/bin/env bash
+
+#associative array based on filetyp
+#
+#
+#
+#home directory path
+DOWNLOADS="$HOME/Downloads"
+#
+declare -A FILE_TYPES=(
+#PNG
     [png]="PNGs"
+
 # Text
     [txt]="Text"
     [rtf]="Text"
@@ -74,3 +84,21 @@
     [css]="Web"
     [aspx]="Web"
     [rss]="Web"
+)
+
+#File sorting loop
+for file in "$DOWNLOADS"/*; do
+    [[ -f "$file" ]] || continue
+
+    filename="$(basename "$file")"
+    ext="${filename##*.}"
+    ext="${ext,,}"
+
+    category="${FILE_TYPES[$ext]:-Others}"
+    destination="$DOWNLOADS/$category"
+
+    mkdir -p "$destination"
+
+    mv "$file" "$destination/" 
+
+done
