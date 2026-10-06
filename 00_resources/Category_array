@@ -1,6 +1,6 @@
 # Base list for category arrays
-#PNGs
-    [png]="PNGs"
+#PDFs
+    [pdf]="PDFs"
 # Text
     [txt]="Text"
     [rtf]="Text"

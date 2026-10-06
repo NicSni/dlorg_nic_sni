@@ -8,8 +8,8 @@
 DOWNLOADS="$HOME/Downloads"
 #
 declare -A FILE_TYPES=(
-#PNG
-    [png]="PNGs"
+#PDF
+    [pdf]="PDFs"
 
 # Text
     [txt]="Text"
