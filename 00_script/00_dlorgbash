@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+
+#associative array based on filetyp
+#
+#
+#
+#home directory path
+DOWNLOADS="$HOME/Downloads"
+#
+declare -A FILE_TYPES=(
+# Text
+    [txt]="Text"
+    [rtf]="Text"
+    [docx]="Text"
+    [csv]="Text"
+    [doc]="Text"
+    [wps]="Text"
+    [wpd]="Text"
+    [msg]="Text"
+
+# Images
+    [jpg]="Images"
+    [png]="Images"
+    [webp]="Images"
+    [gif]="Images"
+    [tif]="Images"
+    [bmp]="Images"
+    [eps]="Images"
+
+# Audio
+    [mp3]="Audio"
+    [wma]="Audio"
+    [snd]="Audio"
+    [wav]="Audio"
+    [ra]="Audio"
+    [au]="Audio"
+    [aac]="Audio"
+
+# Videos
+    [mp4]="Videos"
+    [3gp]="Videos"
+    [avi]="Videos"
+    [mpg]="Videos"
+    [mov]="Videos"
+    [wmv]="Videos"
+    [flac]="Videos"
+    [mkv]="Videos"
+
+# Program
+    [c]="Programs"
+    [cpp]="Programs"
+    [java]="Programs"
+    [py]="Programs"
+    [js]="Programs"
+    [ts]="Programs"
+    [cs]="Programs"
+    [swift]="Programs"
+    [dta]="Programs"
+    [pl]="Programs"
+    [sh]="Programs"
+    [bat]="Programs"
+    [com]="Programs"
+    [exe]="Programs"
+
+# Compressed
+    [rar]="Compressed"
+    [zip]="Compressed"
+    [hxq]="Compressed"
+    [arj]="Compressed"
+    [tar]="Compressed"
+    [arc]="Compressed"
+    [sit]="Compressed"
+    [gz]="Compressed"
+    [z]="Compressed"
+
+# Web
+    [html]="Web"
+    [htm]="Web"
+    [xhtml]="Web"
+    [asp]="Web"
+    [css]="Web"
+    [aspx]="Web"
+    [rss]="Web"
+)
+
+#File sorting loop
+for file in "$DOWNLOADS"/*; do
+    [[ -f "$file" ]] || continue
+
+    filename="$(basename "$file")"
+    ext="{$filename##*.}"
+    ext=""${ext,,}
+
+    category="${FILE_TYPES[$ext]:-Other}"
+    destination="$DOWNLOADS/$category"
+
+    mkdir -p "$destination"
+
+    mv "$file" "$destination/" 
+
+done
+
