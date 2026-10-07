@@ -1,11 +1,11 @@
-#Welcome to my dlorg!
-##What is dlorg?
+# Welcome to my dlorg!
+## What is dlorg?
 Dlorg is an abbrevation (the shortened form) of the concept name DownLoad Organizer.  
 It's a script to do what the name implies: Organizing the files of the Download directory.  
 
 The actual script can be found in the [01_script](/01_script) directory with the filename [dlorg_final](01_script/dlorg_final).  
 
-ABOUT:  
+## About:  
 This script bases the sorting on file extension (also known as type or fomrmat) and sorts depending on what broader category that file is.  
 The categories in the script are as follows:  
 PDFs  
@@ -18,9 +18,12 @@ Web
 Others  
 
 This is apparent in the script coding as this is formulated using an array to structure the categorization at the beginning of the script.
-I have also isolated the categorization in a file under 00_Resources. This is because of my personal preference to have this element isolated just in case I wish to try different versions (and that way I can just copy/paste).
-In the 00_Resources you'll also find a touch command with various file types for testing the script.
-##How to use: 
+After the categorization array the files are sorted in an sorting loop. This Loop goes through the files in the targeted directory, in this case the download directory, and looks up the extension format. This is then cross-referenced with the previous array to determine category and if it's not found in the array it's categorized as Others. After that the script creates a category directory (if one already doesn't exsist) and moved the file into the determined directory.
+  
+## How to use: 
+All you really need is the script that can be found at [dlorg_final](01_script/dlorg_final).   
+The easiest way to get it is by following the link and downloading the file. In the upper right corner there's a download option as pictured below.  
+[hopefully image?]
 
 
  
