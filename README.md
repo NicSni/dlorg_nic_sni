@@ -25,7 +25,8 @@ All you really need is the script that can be found at [dlorg_final](01_script/d
 The easiest way to get it is by following the link and downloading the file. In the upper right corner there's a download option as pictured below.  
 [hopefully image?]
 
-
+Place the script file in an appropriate place
+Run it from the terminal by...
  
 
 
