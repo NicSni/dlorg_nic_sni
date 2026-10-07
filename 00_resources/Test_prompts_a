@@ -45,4 +45,12 @@ touch \
   feed.rss
 
 
+
 #end of touch prompt
+
+
+# touch prompts for PDFs
+touch felineoverlords{1..6}.pdf
+
+
+
