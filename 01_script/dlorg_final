@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-#associative array based on filetype
+#associative array based on filetyp
+#
 #home directory path
 DOWNLOADS="$HOME/Downloads"
-#
+#array
 declare -A FILE_TYPES=(
 #PDF
     [pdf]="PDFs"
@@ -86,10 +87,11 @@ declare -A FILE_TYPES=(
 #File sorting loop
 sort_file() {
     local file="$1"
+    
     [[ -f "$file" ]] || return
 
-    filename="$(basename "$file")"
-    ext="${filename##*.}"
+    local filename="$(basename "$file")"
+    local ext="${filename##*.}"
     ext="${ext,,}"
 
     category="${FILE_TYPES[$ext]:-Others}"
@@ -106,7 +108,7 @@ for file in "$DOWNLOADS"/*; do
 done
 
 #monitor created and moved
-inotifywait -m "$DOWNLOADS" -e create -e moved_to |
+inotifywait -m "$DOWNLOADS" -e close_write -e moved_to |
 while read -r path action file; do
     sort_file "$DOWNLOADS/$file" 
 done
