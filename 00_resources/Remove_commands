@@ -1,4 +1,4 @@
 #remove commands for directories
-rm -r Audio/; rm -r Compressed/; rm -r Images/; rm -r Others/; rm -r PDFs/; rm -r Programs/; rm -r Text/; rm -r Video/; rm -r Web/
+rm -r Audio/; rm -r Compressed/; rm -r Images/; rm -r Others/; rm -r PDFs/; rm -r Programs/; rm -r Text/; rm -r Videos/; rm -r Web/
 
 
