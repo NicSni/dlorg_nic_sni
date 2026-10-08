@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-#associative array based on filetype
+#associative array based on filetyp
+#
+#
+#
 #home directory path
 DOWNLOADS="$HOME/Downloads"
 #
@@ -84,9 +87,8 @@ declare -A FILE_TYPES=(
 )
 
 #File sorting loop
-sort_file() {
-    local file="$1"
-    [[ -f "$file" ]] || return
+for file in "$DOWNLOADS"/*; do
+    [[ -f "$file" ]] || continue
 
     filename="$(basename "$file")"
     ext="${filename##*.}"
@@ -97,16 +99,6 @@ sort_file() {
 
     mkdir -p "$destination"
 
-    mv "$file" "$destination/"
-} 
-#sort files already in directory
-for file in "$DOWNLOADS"/*; do
-    [ -f "$file" ] || continue
-    sort_file "$file"
-done
+    mv "$file" "$destination/" 
 
-#monitor created and moved
-inotifywait -m "$DOWNLOADS" -e create -e moved_to |
-while read -r path action file; do
-    sort_file "$DOWNLOADS/$file" 
 done

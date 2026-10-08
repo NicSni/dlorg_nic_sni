@@ -18,16 +18,16 @@ The categories in the script are as follows:
 *Others  
 
 This is apparent in the script coding as this is formulated using an array to structure the categorization at the beginning of the script.
-After the categorization array the files are sorted in an sorting loop. This Loop goes through the files in the targeted directory, in this case the download directory, and looks up the extension format. This is then cross-referenced with the previous array to determine category and if it's not found in the array it's categorized as Others. After that the script creates a category directory (if one already doesn't exsist) and moved the file into the determined directory.
-  
+After the categorization array the files are sorted in an sorting loop. This Loop goes through the files and looks up the extension format. This is then cross-referenced with the previous array to determine category and if it's not found in the array it's categorized as Others. After that the script creates a category directory (if one already doesn't exsist) and moved the file into the determined directory.
+
+Then we have the Inotifywait functions in 2 parts: first go through files already in the directory, and the second monitors for created and moved files. Both then direct it through the sorting loop.  
+
 ## How to use: 
 All you really need is the script that can be found at [dlorg_final](01_script/dlorg_final).   
 The easiest way to get it is by following the link and downloading the file. In the upper right corner there's a download option as pictured below.  
 ![thuis is where you find the download icon](https://github.com/NicSni/dlorg_nic_sni/blob/main/00_resources/Transfers/img3.png)
 Place the script file in an appropriate place, I would suggest an easy to path place.  
 Run it from the terminal by going down the file path and preceeding it with ./  
-If you feel done you can now delete the script, but if you wish to be able to use it in the future you can leave it be and use it whenever you feel the need.
-
 
 ### Setting it up so it runs automatically every start-up
 coming soon
